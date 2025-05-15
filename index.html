@@ -151,7 +151,7 @@
             z-index: 1;
             background: linear-gradient(135deg, #1e40af, #5b21b6);
         }
-
+        
         /* Custom responsive styles */
         @media (max-width: 767px) {
             /* Mobile-specific styles */
@@ -189,7 +189,7 @@
                 padding: 1.5rem;
             }
         }
-
+        
         @media (min-width: 768px) and (max-width: 1023px) {
             /* Tablet-specific styles */
             .hero-title {
@@ -204,19 +204,50 @@
                 font-size: 3rem;
             }
         }
-
+        
         /* Accessibility improvements */
         a:focus, button:focus {
             outline: 2px solid #3b82f6;
             outline-offset: 2px;
         }
-
-        /* Performance optimizations */
-        .preload-image {
-            position: absolute;
-            width: 0;
-            height: 0;
+        
+        /* Image styling to prevent disappearing */
+        img.portfolio-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* New profile image styles */
+        .profile-image-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            padding: 4px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .profile-image-frame {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
             overflow: hidden;
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-image-container:hover .profile-image {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -268,9 +299,10 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 hero-section">
         <div class="container mx-auto text-center relative z-10">
-            <div class="floating inline-block mb-6 sm:mb-8">
-                <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                    <img src="tht.jpeg" alt="Azmeer" class="w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-white/20" loading="lazy">
+            <!-- Updated profile image container -->
+            <div class="floating profile-image-container mb-6 sm:mb-8">
+                <div class="profile-image-frame">
+                    <img src="tht.jpeg" alt="Azmeer" class="profile-image">
                 </div>
             </div>
             
@@ -304,17 +336,17 @@
             
             <div class="mt-10 sm:mt-16 flex justify-center">
                 <div class="flex space-x-4 sm:space-x-6">
-                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-blue-500 transition-colors" aria-label="GitHub">
+                    <a href="https://github.com/Azmeer101" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-blue-500 transition-colors" aria-label="GitHub">
                         <i class="fab fa-github text-base sm:text-lg"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-blue-600 transition-colors" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in text-base sm:text-lg"></i>
+                    <a href="https://www.instagram.com/heartless_azmeer_101/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-pink-600 transition-colors" aria-label="Instagram">
+                        <i class="fab fa-instagram text-base sm:text-lg"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-pink-600 transition-colors" aria-label="Dribbble">
-                        <i class="fab fa-dribbble text-base sm:text-lg"></i>
+                    <a href="https://www.facebook.com/heartlessazmeer/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-blue-600 transition-colors" aria-label="Facebook">
+                        <i class="fab fa-facebook-f text-base sm:text-lg"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-purple-600 transition-colors" aria-label="Behance">
-                        <i class="fab fa-behance text-base sm:text-lg"></i>
+                    <a href="https://wa.me/03088748656" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-green-500 transition-colors" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp text-base sm:text-lg"></i>
                     </a>
                 </div>
             </div>
@@ -336,7 +368,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div class="relative">
                     <div class="glass-card p-1 sm:p-2 rounded-2xl">
-                        <img src="tht.jpeg" alt="Azmeer" class="w-full h-auto rounded-2xl" loading="lazy">
+                        <img src="tht.jpeg" alt="Azmeer" class="portfolio-image w-full h-auto rounded-2xl">
                     </div>
                     <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 reactbits-badge rounded-full">
                         <span class="flex items-center px-3 py-1 sm:px-4 sm:py-2 rounded-full text-white text-xs sm:text-sm font-medium">
@@ -499,413 +531,409 @@
                         <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
                             Git
                         </div>
-        <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
-      Docker
-    </div>
-    <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
-      CI/CD
-    </div>
-    <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
-      Testing
-    </div>
-    <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
-      Agile
-    </div>
-    <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
-      Jira
-    </div>
-  </div>
-</div>
-</div>
+                        <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
+                            Docker
+                        </div>
+                        <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
+                            CI/CD
+                        </div>
+                        <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
+                            Testing
+                        </div>
+                        <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
+                            Agile
+                        </div>
+                        <div class="skill-pill px-3 py-1 sm:px-4 sm:py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-xs sm:text-sm">
+                            Jira
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- ReactBits Features Showcase -->
-<div class="glass-card p-6 sm:p-8 rounded-2xl mt-8">
-  <div class="flex flex-col sm:flex-row items-center mb-6 sm:mb-8">
-    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mr-0 sm:mr-6 mb-4 sm:mb-0">
-      <i class="fab fa-react text-xl sm:text-3xl"></i>
-    </div>
-    <div class="text-center sm:text-left">
-      <h3 class="text-xl sm:text-2xl font-bold text-white">ReactBits Expertise</h3>
-      <p class="text-gray-400 text-sm sm:text-base">Premium UI components and features I've mastered</p>
-    </div>
-  </div>
-  
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-    <div class="p-4 sm:p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-blue-500 transition-colors">
-      <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 mb-3 sm:mb-4">
-        <i class="fas fa-layer-group"></i>
-      </div>
-      <h4 class="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">Component Library</h4>
-      <p class="text-gray-400 text-xs sm:text-sm">
-        Built 50+ reusable components with ReactBits including advanced data tables, modals, and form controls.
-      </p>
-    </div>
-    
-    <div class="p-4 sm:p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-purple-500 transition-colors">
-      <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 mb-3 sm:mb-4">
-        <i class="fas fa-chart-line"></i>
-      </div>
-      <h4 class="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">Data Visualization</h4>
-      <p class="text-gray-400 text-xs sm:text-sm">
-        Implemented ReactBits charts and graphs for complex data representation with interactive features.
-      </p>
-    </div>
-    
-    <div class="p-4 sm:p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-green-500 transition-colors">
-      <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400 mb-3 sm:mb-4">
-        <i class="fas fa-mobile-alt"></i>
-      </div>
-      <h4 class="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">Responsive Layouts</h4>
-      <p class="text-gray-400 text-xs sm:text-sm">
-        Created adaptive interfaces using ReactBits grid and layout systems for all device sizes.
-      </p>
-    </div>
-  </div>
-</div>
-</div>
-</section>
+            <!-- ReactBits Features Showcase -->
+            <div class="glass-card p-6 sm:p-8 rounded-2xl mt-8">
+                <div class="flex flex-col sm:flex-row items-center mb-6 sm:mb-8">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mr-0 sm:mr-6 mb-4 sm:mb-0">
+                        <i class="fab fa-react text-xl sm:text-3xl"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white">ReactBits Expertise</h3>
+                        <p class="text-gray-400 text-sm sm:text-base">Premium UI components and features I've mastered</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="p-4 sm:p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-blue-500 transition-colors">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 mb-3 sm:mb-4">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">Component Library</h4>
+                        <p class="text-gray-400 text-xs sm:text-sm">
+                            Built 50+ reusable components with ReactBits including advanced data tables, modals, and form controls.
+                        </p>
+                    </div>
+                    
+                    <div class="p-4 sm:p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-purple-500 transition-colors">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 mb-3 sm:mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">Data Visualization</h4>
+                        <p class="text-gray-400 text-xs sm:text-sm">
+                            Implemented ReactBits charts and graphs for complex data representation with interactive features.
+                        </p>
+                    </div>
+                    
+                    <div class="p-4 sm:p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-green-500 transition-colors">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400 mb-3 sm:mb-4">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">Responsive Layouts</h4>
+                        <p class="text-gray-400 text-xs sm:text-sm">
+                            Created adaptive interfaces using ReactBits grid and layout systems for all device sizes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!-- Projects Section -->
-<section id="projects" class="py-16 sm:py-20 px-4 sm:px-6 bg-gray-900/50 backdrop-blur-sm">
-<div class="container mx-auto">
-<div class="text-center mb-10 sm:mb-16">
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 section-title">
-    My <span class="gradient-text">Projects</span>
-  </h2>
-  <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto section-description">
-    A showcase of my best work with ReactBits integration
-  </p>
-</div>
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 sm:py-20 px-4 sm:px-6 bg-gray-900/50 backdrop-blur-sm">
+        <div class="container mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 section-title">
+                    My <span class="gradient-text">Projects</span>
+                </h2>
+                <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto section-description">
+                    A showcase of my best work with ReactBits integration
+                </p>
+            </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-  <!-- Project 1 -->
-  <div class="project-card">
-    <div class="project-card-inner glass-card rounded-2xl overflow-hidden h-full">
-      <div class="relative">
-        <img src="project.png" alt="Project 1" class="w-full h-40 sm:h-48 object-cover" loading="lazy">
-        <div class="absolute top-3 sm:top-4 right-3 sm:right-4 reactbits-badge rounded-full">
-          <span class="flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-white text-xs font-medium">
-            ReactBits
-          </span>
-        </div>
-      </div>
-      <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">E-commerce Dashboard</h3>
-        <p class="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
-          A comprehensive admin dashboard built with ReactBits components for analytics and inventory management.
-        </p>
-        <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">React</span>
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">ReactBits</span>
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Node.js</span>
-        </div>
-        <div class="flex justify-between items-center text-xs sm:text-sm">
-          <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
-            <span>View Project</span>
-            <i class="fas fa-external-link-alt ml-1 sm:ml-2 text-xs"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Project 2 -->
-  <div class="project-card">
-    <div class="project-card-inner glass-card rounded-2xl overflow-hidden h-full">
-      <div class="relative">
-        <img src="https://via.placeholder.com/600x400" alt="Project 2" class="w-full h-40 sm:h-48 object-cover" loading="lazy">
-        <div class="absolute top-3 sm:top-4 right-3 sm:right-4 reactbits-badge rounded-full">
-          <span class="flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-white text-xs font-medium">
-            ReactBits
-          </span>
-        </div>
-      </div>
-      <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Healthcare Portal</h3>
-        <p class="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
-          Patient management system with appointment scheduling using ReactBits calendar and form components.
-        </p>
-        <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Next.js</span>
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">ReactBits</span>
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-red-500/20 text-red-400 rounded-full text-xs">Firebase</span>
-        </div>
-        <div class="flex justify-between items-center text-xs sm:text-sm">
-          <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
-            <span>View Project</span>
-            <i class="fas fa-external-link-alt ml-1 sm:ml-2 text-xs"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Project 3 -->
-  <div class="project-card">
-    <div class="project-card-inner glass-card rounded-2xl overflow-hidden h-full">
-      <div class="relative">
-        <img src="project.png" alt="Project 3" class="w-full h-40 sm:h-48 object-cover" loading="lazy">
-        <div class="absolute top-3 sm:top-4 right-3 sm:right-4 reactbits-badge rounded-full">
-          <span class="flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-white text-xs font-medium">
-            ReactBits
-          </span>
-        </div>
-      </div>
-      <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">TIC TAC TOE</h3>
-        <p class="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
-          My first ever game built with HTML, CSS and JavaScript with animation and an AI mode. Hope you enjoy the game!
-        </p>
-        <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">React</span>
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">ReactBits</span>
-          <span class="px-2 py-1 sm:px-3 sm:py-1 bg-green-500/20 text-green-400 rounded-full text-xs">D3.js</span>
-        </div>
-        <div class="flex justify-between items-center text-xs sm:text-sm">
-          <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
-            <span>View Project</span>
-            <i class="fas fa-external-link-alt ml-1 sm:ml-2 text-xs"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-card-inner glass-card rounded-2xl overflow-hidden h-full">
+                        <div class="relative">
+                            <img src="project2.png" alt="Frontend E-commerce Website" class="portfolio-image w-full h-40 sm:h-48 object-cover">
+                            <div class="absolute top-3 sm:top-4 right-3 sm:right-4 reactbits-badge rounded-full">
+                                <span class="flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-white text-xs font-medium">
+                                    ReactBits
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Frontend E-commerce Website</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
+                                A sleek, user-friendly e-commerce platform built with ReactBits, featuring dynamic product grids and seamless navigation for an engaging shopping experience.
+                            </p>
+                            <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">React</span>
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">ReactBits</span>
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Node.js</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs sm:text-sm">
+                                <a href="https://gregarious-youtiao-2c48b7.netlify.app/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 flex items-center">
+                                    <span>View Project</span>
+                                    <i class="fas fa-external-link-alt ml-1 sm:ml-2 text-xs"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-card-inner glass-card rounded-2xl overflow-hidden h-full">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 2" class="portfolio-image w-full h-40 sm:h-48 object-cover">
+                            <div class="absolute top-3 sm:top-4 right-3 sm:right-4 reactbits-badge rounded-full">
+                                <span class="flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-white text-xs font-medium">
+                                    ReactBits
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Healthcare Portal</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
+                                Patient management system with appointment scheduling using ReactBits calendar and form components.
+                            </p>
+                            <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Next.js</span>
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">ReactBits</span>
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-red-500/20 text-red-400 rounded-full text-xs">Firebase</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs sm:text-sm">
+                                <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
+                                    <span>View Project</span>
+                                    <i class="fas fa-external-link-alt ml-1 sm:ml-2 text-xs"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-card-inner glass-card rounded-2xl overflow-hidden h-full">
+                        <div class="relative">
+                            <img src="project.png" alt="Tic Tac Toe Game" class="portfolio-image w-full h-40 sm:h-48 object-cover">
+                            <div class="absolute top-3 sm:top-4 right-3 sm:right-4 reactbits-badge rounded-full">
+                                <span class="flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-white text-xs font-medium">
+                                    ReactBits
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">TIC TAC TOE</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
+                                My first ever game built with HTML, CSS and JavaScript with animation and an AI mode. Hope you enjoy the game!
+                            </p>
+                            <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">HTML/CSS</span>
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">JavaScript</span>
+                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Game Dev</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs sm:text-sm">
+                                <a href="https://azmeer101.github.io/ai-update/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 flex items-center">
+                                    <span>View Project</span>
+                                    <i class="fas fa-external-link-alt ml-1 sm:ml-2 text-xs"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<div class="text-center mt-10 sm:mt-16">
-  <button class="px-6 py-2 sm:px-8 sm:py-3 border-2 border-white/20 text-white rounded-full font-semibold hover:bg-white/10 transition-all transform hover:scale-105 flex items-center space-x-2 mx-auto text-sm sm:text-base">
-    <i class="fas fa-folder-open"></i>
-    <span>View All Projects</span>
-  </button>
-</div>
-</div>
-</section>
+            <div class="text-center mt-10 sm:mt-16">
+                <button class="px-6 py-2 sm:px-8 sm:py-3 border-2 border-white/20 text-white rounded-full font-semibold hover:bg-white/10 transition-all transform hover:scale-105 flex items-center space-x-2 mx-auto text-sm sm:text-base">
+                    <i class="fas fa-folder-open"></i>
+                    <span>View All Projects</span>
+                </button>
+            </div>
+        </div>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 bg-gray-900/50 backdrop-blur-sm contact-section">
-<div class="container mx-auto">
-<div class="text-center mb-10 sm:mb-16">
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 section-title">
-    <span class="gradient-text">Contact</span> <span class="text-white">Me</span>
-  </h2>
-  <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto section-description">
-    Let's work together and create something amazing
-  </p>
-</div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 bg-gray-900/50 backdrop-blur-sm contact-section">
+        <div class="container mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 section-title">
+                    <span class="gradient-text">Contact</span> <span class="text-white">Me</span>
+                </h2>
+                <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto section-description">
+                    Let's work together and create something amazing
+                </p>
+            </div>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-  <div>
-    <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Get in Touch</h3>
-    
-    <div class="space-y-4 sm:space-y-6">
-      <div class="flex items-start">
-        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mr-4 sm:mr-6">
-          <i class="fas fa-envelope text-sm sm:text-base"></i>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-1 text-sm sm:text-base">Email</h4>
-          <p class="text-gray-400 text-xs sm:text-sm">azmeer@example.com</p>
-        </div>
-      </div>
-      
-      <div class="flex items-start">
-        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-4 sm:mr-6">
-          <i class="fas fa-phone-alt text-sm sm:text-base"></i>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-1 text-sm sm:text-base">Phone</h4>
-          <p class="text-gray-400 text-xs sm:text-sm">+1 (123) 456-7890</p>
-        </div>
-      </div>
-      
-      <div class="flex items-start">
-        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 mr-4 sm:mr-6">
-          <i class="fas fa-map-marker-alt text-sm sm:text-base"></i>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-1 text-sm sm:text-base">Location</h4>
-          <p class="text-gray-400 text-xs sm:text-sm">San Francisco, CA</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="mt-8 sm:mt-10">
-      <h4 class="font-bold text-white mb-3 sm:mb-4 text-sm sm:text-base">Follow Me</h4>
-      <div class="flex space-x-3 sm:space-x-4">
-        <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-blue-500 transition-colors" aria-label="GitHub">
-          <i class="fab fa-github text-sm sm:text-base"></i>
-        </a>
-        <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-blue-600 transition-colors" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in text-sm sm:text-base"></i>
-        </a>
-        <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-pink-600 transition-colors" aria-label="Dribbble">
-          <i class="fab fa-dribbble text-sm sm:text-base"></i>
-        </a>
-        <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-purple-600 transition-colors" aria-label="Behance">
-          <i class="fab fa-behance text-sm sm:text-base"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col items-center justify-center">
-    <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">Send a Message</h3>
-    <a href="https://wa.me/03088748656" target="_blank" class="w-full px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-90 transition-all transform hover:scale-[1.01] flex items-center justify-center space-x-2 text-sm sm:text-base">
-      <i class="fab fa-whatsapp"></i>
-      <span>CONTACT ON WHATSAPP</span>
-    </a>
-  </div>
-</div>
-</div>
-</section>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Get in Touch</h3>
+                
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mr-4 sm:mr-6">
+                                <i class="fas fa-envelope text-sm sm:text-base"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1 text-sm sm:text-base">Email</h4>
+                                <p class="text-gray-400 text-xs sm:text-sm">azmeer@example.com</p>
+                            </div>
+                        </div>
+                    
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-4 sm:mr-6">
+                                <i class="fas fa-phone-alt text-sm sm:text-base"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1 text-sm sm:text-base">Phone</h4>
+                                <p class="text-gray-400 text-xs sm:text-sm">+1 (123) 456-7890</p>
+                            </div>
+                        </div>
+                    
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 mr-4 sm:mr-6">
+                                <i class="fas fa-map-marker-alt text-sm sm:text-base"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1 text-sm sm:text-base">Location</h4>
+                                <p class="text-gray-400 text-xs sm:text-sm">San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Footer -->
-<footer class="py-8 sm:py-10 px-4 sm:px-6 bg-gray-900 border-t border-gray-800">
-<div class="container mx-auto">
-<div class="flex flex-col md:flex-row justify-between items-center">
-  <div class="flex items-center space-x-2 mb-4 sm:mb-0">
-    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
-      A
-    </div>
-    <span class="text-lg sm:text-xl font-bold gradient-text">Azmeer</span>
-  </div>
-  
-  <div class="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 mb-4 sm:mb-0">
-    <a href="#home" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Home</a>
-    <a href="#about" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">About</a>
-    <a href="#skills" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Skills</a>
-    <a href="#projects" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Projects</a>
-    <a href="#contact" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Contact</a>
-  </div>
-  
-  <div class="text-gray-500 text-xs sm:text-sm text-center sm:text-right">
-    © 2023 Azmeer Ahmed. All rights reserved.
-  </div>
-</div>
-</div>
-</footer>
+                    <div class="mt-8 sm:mt-10">
+                        <h4 class="font-bold text-white mb-3 sm:mb-4 text-sm sm:text-base">Follow Me</h4>
+                        <div class="flex space-x-3 sm:space-x-4">
+                            <a href="https://github.com/Azmeer101" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-blue-500 transition-colors" aria-label="GitHub">
+                                <i class="fab fa-github text-sm sm:text-base"></i>
+                            </a>
+                            <a href="https://www.instagram.com/heartless_azmeer_101" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-pink-600 transition-colors" aria-label="Instagram">
+                                <i class="fab fa-instagram text-sm sm:text-base"></i>
+                            </a>
+                            <a href="https://www.facebook.com/heartlessazmeer" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-blue-600 transition-colors" aria-label="Facebook">
+                                <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                            </a>
+                            <a href="https://wa.me/03088748656" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-green-500 transition-colors" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp text-sm sm:text-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col items-center justify-center">
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">Send a Message</h3>
+                    <a href="https://wa.me/03088748656" target="_blank" class="w-full px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-90 transition-all transform hover:scale-[1.01] flex items-center justify-center space-x-2 text-sm sm:text-base">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>CONTACT ON WHATSAPP</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Preload images -->
-<div class="preload-image">
-  <img src="project.png" alt="preloaded project image">
-</div>
+    <!-- Footer -->
+    <footer class="py-8 sm:py-10 px-4 sm:px-6 bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 sm:mb-0">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
+                        A
+                    </div>
+                    <span class="text-lg sm:text-xl font-bold gradient-text">Azmeer</span>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 mb-4 sm:mb-0">
+                    <a href="#home" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">About</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Skills</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Projects</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Contact</a>
+                </div>
+                
+                <div class="text-gray-500 text-xs sm:text-sm text-center sm:text-right">
+                    © 2023 Azmeer Ahmed. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script>
-  // Initialize Vanta.js background
-  VANTA.NET({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0x3b82f6,
-    backgroundColor: 0x111827,
-    points: 12.00,
-    maxDistance: 20.00,
-    spacing: 15.00
-  });
-  
-  // Mobile menu toggle
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    mobileMenuButton.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
-  });
-  
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
-      mobileMenu.classList.add('hidden');
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-    }
-  });
-  
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
+    <script>
+        // Initialize Vanta.js background
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x111827,
+            points: 12.00,
+            maxDistance: 20.00,
+            spacing: 15.00
         });
-        
-        // Close mobile menu if open
-        if (!mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          mobileMenuButton.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
-  });
-  
-  // Animate elements when scrolled into view
-  const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.project-card, .skill-pill, .glass-card');
-    
-    elements.forEach(element => {
-      const elementPosition = element.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.2;
-      
-      if (elementPosition < screenPosition) {
-        element.style.opacity = '1';
-        element.style.transform = 'translateY(0)';
-      }
-    });
-  };
-  
-  // Set initial styles for animated elements
-  document.querySelectorAll('.project-card, .skill-pill, .glass-card').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'all 0.5s ease';
-  });
-  
-  // Run once on load
-  animateOnScroll();
-  
-  // Run on scroll
-  window.addEventListener('scroll', animateOnScroll);
-  
-  // Performance optimization - lazy load images
-  document.addEventListener('DOMContentLoaded', function() {
-    const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
-    
-    if ('IntersectionObserver' in window) {
-      let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            let lazyImage = entry.target;
-            lazyImage.src = lazyImage.dataset.src;
-            lazyImageObserver.unobserve(lazyImage);
-          }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
         });
-      });
-      
-      lazyImages.forEach(function(lazyImage) {
-        lazyImageObserver.observe(lazyImage);
-      });
-    }
-  });
-</script>
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+               彼此: The targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+
+        // Animate elements when scrolled into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.project-card, .skill-pill, .glass-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial styles for animated elements
+        document.querySelectorAll('.project-card, .skill-pill, .glass-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.5s ease';
+        });
+
+        // Run once on load
+        animateOnScroll();
+
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Performance optimization for images
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img.portfolio-image');
+            
+            images.forEach(img => {
+                // Create a temporary image to ensure it loads
+                const tempImg = new Image();
+                tempImg.src = img.src;
+                tempImg.onload = function() {
+                    // Image loaded successfully
+                    img.style.display = 'block';
+                };
+                tempImg.onerror = function() {
+                    // If image fails to load, use fallback
+                    if (img.src.includes('project.png')) {
+                        img.src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80';
+                    } else if (img.src.includes('tht.jpeg')) {
+                        img.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80';
+                    }
+                };
+            });
+        });
+    </script>
 </body>
 </html>
